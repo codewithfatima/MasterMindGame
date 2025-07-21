@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MasterMind Game</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!--  MENU SCREEN  -->
+  <div class="mainScreen" id="menu-screen">
+    <div class="menu animated">
+      <h1 class="title"> Mastermind Game</h1>
+      <label class="switch-label">
+        Allow Duplicates
+        <input type="checkbox" id="allow-duplicates" />
+      </label>
+      <button id="start-btn" class="animated-btn">Start Game</button>
+      <button id="rules-btn" class="animated-btn">Rules</button>
+    </div>
+  </div>
+
+  <!--  RULES SCREEN -->
+  <div class="rules" id="rules-screen" style="display: none;">
+    <h1>Rules of The Game</h1>
+    <ul>
+      <li>The computer picks a sequence of colors. The number of colors is the code length.</li>
+      <li>The objective is to guess the exact positions of the colors.</li>
+      <li>By default, each color can only be used once. If you enable "Allow Duplicates," colors may repeat.</li>
+      <li>Red peg: correct color & correct position</li>
+      <li>White peg: correct color but wrong position</li>
+      <li>Black peg: color not in code</li>
+      <li>You have 10 attempts. Good luck!</li>
+    </ul>
+    <h2>How to play the game</h2>
+    <ul>
+      <li>Start a new game by clicking on the 'Start Game' button. If you wish to change the default game parameters,
+        you may change the 'Allow duplicates' field before clicking on the 'Start Game' button.</li>
+      <li>Select a color at the bottom and place it in the current guess line above by clicking on the desired position.
+      </li>
+      <li>Click 'Check' to get feedback after your guess.</li>
+      <li>You have 10 attempts to guess the code sequence. Good luck!</li>
+    </ul>
+    <button id="back-btn" class="animated-btn">Back</button>
+  </div>
+
+
+  <!--  GAME SCREEN -->
+  <div class="game" id="game-screen" style="display:none;">
+    <div class="board">
+      <div class="hidden-code" id="hidden-code">
+        <div class="slot">?</div>
+        <div class="slot">?</div>
+        <div class="slot">?</div>
+        <div class="slot">?</div>
+      </div>
+
+      <div id="guesses"></div>
+
+      <div id="colorPalette">
+        <div class="color" style="background: red;" draggable="true" data-color="red"></div>
+        <div class="color" style="background: blue;" draggable="true" data-color="blue"></div>
+        <div class="color" style="background: green;" draggable="true" data-color="green"></div>
+        <div class="color" style="background: yellow;" draggable="true" data-color="yellow"></div>
+        <div class="color" style="background: purple;" draggable="true" data-color="purple"></div>
+        <div class="color" style="background: orange;" draggable="true" data-color="orange"></div>
+        <div class="color" style="background: black;" draggable="true" data-color="black"></div>
+        <div class="color" style="background: white;" draggable="true" data-color="white"></div>
+      </div>
+
+      <button id="check-btn" class="animated-btn">Check</button>
+      <button id="restart-btn" class="animated-btn">Start Again</button>
+    </div>
+  </div>
+
+
+  <!--  CUSTOM ALERT MODAL -->
+  <div id="custom-alert" class="custom-modal">
+    <div class="custom-content">
+      <div class="icon">🎉</div>
+      <h2>Congratulations!</h2>
+      <div class="stars" id="stars-container"></div>
+      <button id="play-again">Play Again</button>
+    </div>
+  </div>
+
+  <!-- JS Script -->
+  <script src="java.js"></script>
+</body>
+
+</html>
